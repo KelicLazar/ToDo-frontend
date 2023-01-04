@@ -1,0 +1,22 @@
+.todos {
+  width: 40%;
+  margin: 4% auto;
+  border: 6px solid var(--main-color);
+  padding: 2%;
+  border-radius: 50px;
+}
+.todos h2 {
+  width: fit-content;
+  margin: 0 auto 20px;
+  color: var(--main-color);
+  letter-spacing: 4px;
+  text-shadow: 2px 2px 2px rgba(118, 118, 219, 0.707);
+}
+.todos ul {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+/* #root .todos h2 {
+  color: var(--main-color) !important;
+} */

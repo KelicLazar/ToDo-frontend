@@ -1,0 +1,41 @@
+.todoItem {
+  background-color: white;
+  border: 2px solid var(--main-color);
+  margin: 2%;
+  border-radius: 40px;
+  padding: 2%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.todoItem p {
+  font-size: 40px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 0;
+  color: var(--main-color);
+  text-shadow: 2px 2px 2px black;
+  width: fit-content;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+p input[type="checkbox"] {
+  font-size: 40px;
+  accent-color: red;
+}
+p.checked {
+  text-decoration: line-through;
+  font-style: italic;
+}
+
+.todoItem button {
+  background-color: var(--main-color);
+  border-radius: 20px;
+  padding: 1% 2%;
+  color: white;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+}

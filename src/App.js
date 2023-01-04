@@ -1,24 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Auth from "./pages/Auth";
+import Todos from "./pages/Todos";
+import { AuthContext } from "./shared/context/auth-context";
+import { useAuth } from "./shared/hooks/use-auth";
+import {
+  Route,
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+  Outlet,
+} from "react-router-dom";
+import Navigation from "./shared/components/Navigation";
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route
+      path="/"
+      element={
+        <>
+          <Navigation />
+          <Outlet />
+        </>
+      }
+    >
+      <Route path="auth" element={<Auth />} />
+      <Route path="todos" element={<Todos />} />
+    </Route>
+  )
+);
 
 function App() {
+  const { token, user, login, logout } = useAuth();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthContext.Provider
+      value={{
+        isLoggedIn: !!token,
+        token,
+        user,
+        login,
+        logout,
+      }}
+    >
+      <RouterProvider router={router}></RouterProvider>
+    </AuthContext.Provider>
   );
 }
 

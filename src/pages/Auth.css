@@ -1,0 +1,59 @@
+.authentication {
+  width: 30%;
+  margin: 2rem auto;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  border: 3px solid black;
+  display: flex;
+  flex-direction: column;
+}
+.auth-mode {
+  display: flex;
+  flex-direction: row;
+}
+
+.auth {
+  cursor: pointer;
+  padding: 2%;
+  background-color: transparent;
+  color: rgba(185, 184, 184, 0.253);
+  transition: all 0.2s;
+  width: 50%;
+}
+.auth.active {
+  background-color: var(--main-color);
+  color: white;
+  text-decoration: underline;
+}
+.auth h3 {
+  width: fit-content;
+  margin: auto;
+}
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+}
+.auth-form label,
+.auth-form input {
+  font-weight: bolder;
+  color: var(--main-color);
+}
+.auth-form input {
+  width: 50%;
+  margin: 2% auto;
+  padding: 0.5% 0;
+}
+.auth-form button {
+  cursor: pointer;
+  width: 40%;
+  margin: 2% auto;
+  background-color: var(--main-color);
+  padding: 2%;
+  transition: all 0.2s;
+  color: white;
+}
+.auth-form button:hover {
+  background-color: #2c74b3;
+}
