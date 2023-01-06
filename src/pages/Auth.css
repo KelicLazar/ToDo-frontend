@@ -57,3 +57,9 @@
 .auth-form button:hover {
   background-color: #2c74b3;
 }
+
+@media (max-width: 968px) {
+  .authentication {
+    width: 90%;
+  }
+}

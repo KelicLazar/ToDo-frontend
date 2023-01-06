@@ -4,16 +4,6 @@
   box-sizing: border-box;
   --main-color: #205295;
 }
-/* h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-li {
-  color: #ece8dd;
-} */
 
 .navigation {
   background-color: var(--main-color);
@@ -24,13 +14,17 @@ li {
 }
 .navigation h1 {
   width: fit-content;
+  white-space: nowrap;
 }
 .navigation ul {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  width: 20%;
   cursor: pointer;
+}
+.navigation ul li {
+  white-space: nowrap;
+  padding: 10px 10px;
 }
 li::marker {
   content: "";
