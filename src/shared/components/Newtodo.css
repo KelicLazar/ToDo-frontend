@@ -24,3 +24,6 @@
   cursor: pointer;
   text-transform: uppercase;
 }
+.todo-form button:disabled {
+  background-color: rgb(105, 121, 154);
+}

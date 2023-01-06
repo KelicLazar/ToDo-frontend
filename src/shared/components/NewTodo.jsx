@@ -9,11 +9,12 @@ const NewTodo = (props) => {
 
   const addTodoHandler = async (event) => {
     event.preventDefault();
-    if (text) {
-      const todos = await addTodo(text, authCtx.user.id);
-      console.log("todos from addTodoHandler", todos);
-      props.onAdd(todos);
-    }
+    const userId = authCtx?.user?.id;
+
+    const todos = await addTodo(text, userId);
+    console.log("todos from addTodoHandler", todos);
+
+    props.onAdd(todos);
   };
   return (
     <div>
@@ -27,7 +28,9 @@ const NewTodo = (props) => {
           placeholder="Add ToDo"
           type="text"
         />
-        <button type="submit">+ Add</button>
+        <button disabled={!text} type="submit">
+          + Add
+        </button>
       </form>
     </div>
   );

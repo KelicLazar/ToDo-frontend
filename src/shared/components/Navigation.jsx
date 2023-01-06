@@ -9,10 +9,12 @@ const Navigation = () => {
     <div className="navigation">
       <h1>ToDo App</h1>
       <ul>
-        <li>
-          <Link to="/todos">Todos</Link>
-        </li>
-        {authCtx.isLoggedIn && <li>{authCtx.user.name.toUpperCase()}</li>}
+        <li></li>
+        {authCtx.isLoggedIn && (
+          <li>
+            <Link to="/todos">Todos</Link>
+          </li>
+        )}
 
         {authCtx.isLoggedIn && <li onClick={authCtx.logout}>Odjavi se</li>}
         {!authCtx.isLoggedIn && (

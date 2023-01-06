@@ -1,4 +1,9 @@
 export const getTodos = async (userId) => {
+  if (!userId) {
+    let error = new Error("You have to be logged in to see your Todo list.");
+    return error;
+  }
+
   console.log("sending getTodos request");
   try {
     const response = await fetch(
@@ -18,6 +23,10 @@ export const getTodos = async (userId) => {
 };
 
 export const addTodo = async (text, userId, isChecked = false) => {
+  if (!userId) {
+    let error = new Error("You have to be logged in to add new Todo.");
+    return error;
+  }
   try {
     const response = await fetch(
       process.env.REACT_APP_BACKEND_URL + "todos/create",
@@ -43,6 +52,11 @@ export const addTodo = async (text, userId, isChecked = false) => {
 };
 
 export const checkTodo = async (todoId, userId) => {
+  if (!userId || !todoId) {
+    let error = new Error("You have to be logged in to check this Todo.");
+    return error;
+  }
+
   try {
     await fetch(process.env.REACT_APP_BACKEND_URL + "todos/check", {
       method: "PATCH",
@@ -58,6 +72,10 @@ export const checkTodo = async (todoId, userId) => {
 };
 
 export const deleteTodo = async (todoId, userId) => {
+  if (!userId || !todoId) {
+    let error = new Error("You have to be logged in to delete this Todo.");
+    return error;
+  }
   try {
     await fetch(process.env.REACT_APP_BACKEND_URL + "todos/delete", {
       method: "DELETE",

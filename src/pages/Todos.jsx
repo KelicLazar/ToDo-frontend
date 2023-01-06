@@ -16,8 +16,7 @@ const Todos = () => {
     if (tds.ok) {
       setTodos(tds.todos);
     } else {
-      console.log(tds, "this is error");
-      setError("Something went wrong");
+      setError(tds.message);
     }
   };
 

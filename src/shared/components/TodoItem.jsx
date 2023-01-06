@@ -7,11 +7,17 @@ const TodoItem = (props) => {
   const authCtx = useContext(AuthContext);
 
   const handleChecked = async () => {
-    const todos = await checkTodo(props.id, authCtx.user.id);
-    await props.onCheck(todos);
+    const userId = authCtx?.user?.id;
+    const todoId = props.id;
+    const todos = await checkTodo(todoId, userId);
+
+    props.onCheck(todos);
   };
   const deleteTodoHandler = async () => {
-    const todos = await deleteTodo(props.id, authCtx.user.id);
+    const userId = authCtx?.user?.id;
+    const todoId = props.id;
+    const todos = await deleteTodo(todoId, userId);
+
     props.onDelete(todos);
   };
   return (
